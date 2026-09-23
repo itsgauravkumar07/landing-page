@@ -402,3 +402,7 @@ footer.site{background:var(--blue-900);color:#8FAAD8;padding:26px 0;font-size:13
   .float-contact{right:14px;bottom:92px}
   .float-contact__btn{width:50px;height:50px}
 }
+
+.hero_h1{
+  font-size: small;
+}

@@ -1,16 +1,14 @@
-/* =========================
-   Thank You page
-   Ported 1:1 from the provided thankyou.html design
-   (Paradise Yatra brand: navy #0A3342 / teal #00A89A, Montserrat).
-   Classes are namespaced with "ty-" so nothing here can collide
-   with the landing page's own global.css.
-========================= */
+/* =========================================================
+   THANK YOU PAGE
+   Paradise Yatra
+========================================================= */
 
 .ty-page {
     position: relative;
 
     width: 100%;
     min-height: 100vh;
+    min-height: 100svh;
 
     overflow: hidden;
 
@@ -18,17 +16,25 @@
     align-items: center;
     justify-content: center;
 
-    background: linear-gradient(180deg, #FFFFFF 0%, #F7FBFB 100%);
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #f7fbff 100%
+        );
 
     font-family: "Montserrat", Arial, sans-serif;
-    color: #082B3A;
+    color: #082b3a;
 }
 
 .ty-page * {
     box-sizing: border-box;
 }
 
-/* Background shapes */
+
+/* =========================================================
+   BACKGROUND SHAPES
+========================================================= */
 
 .ty-yellow-shape {
     position: absolute;
@@ -59,7 +65,7 @@
     width: min(38vw, 700px);
     height: min(42vw, 620px);
 
-    background: rgba(18,89,222,.85);
+    background: rgba(18, 89, 222, 0.85);
 
     clip-path: polygon(
         100% 0,
@@ -70,21 +76,27 @@
     z-index: 0;
 }
 
-/* Main content */
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
 .ty-content {
     position: relative;
     z-index: 5;
 
     width: 100%;
-    max-width: 760px;
+    max-width: 850px;
 
     padding: 40px 25px;
 
     text-align: center;
 }
 
-/* Check icon */
+
+/* =========================================================
+   CHECK ICON
+========================================================= */
 
 .ty-check-circle {
     width: 54px;
@@ -94,20 +106,24 @@
 
     border-radius: 50%;
 
-    background: rgba(18,89,222,.85);
+    background: #1259de;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     font-size: 25px;
 
-    box-shadow: 0 4px 12px rgba(0, 168, 154, 0.18);
+    box-shadow:
+        0 6px 18px rgba(18, 89, 222, 0.25);
 }
 
-/* Heading */
+
+/* =========================================================
+   HEADING
+========================================================= */
 
 .ty-page h1 {
     margin: 0 0 14px;
@@ -117,10 +133,13 @@
 
     font-weight: 700;
 
-    color: #082B3A;
+    color: #082b3a;
 }
 
-/* Description */
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
 
 .ty-description {
     width: 100%;
@@ -128,7 +147,7 @@
 
     margin: 0 auto 38px;
 
-    color: #647B83;
+    color: #647b83;
 
     font-size: clamp(12px, 1vw, 14px);
     line-height: 1.7;
@@ -136,42 +155,63 @@
     font-weight: 400;
 }
 
-/* Action card */
+
+/* =========================================================
+   ACTION CARD
+========================================================= */
 
 .ty-action-card {
     width: 100%;
-    max-width: 650px;
+    max-width: 800px;
 
-    min-height: 155px;
+    min-height: 165px;
 
     margin: 0 auto;
 
-    padding: 30px 45px;
+    padding: 28px 30px;
 
-    background: #FFFFFF;
+    background: #ffffff;
 
-    border: 1px solid #DDE9EA;
+    border: 1px solid #dde9ea;
+
+    border-radius: 8px;
 
     box-shadow:
         0 14px 45px rgba(8, 43, 58, 0.10);
 
     display: grid;
 
-    grid-template-columns: 1fr 1px 1fr;
+    /*
+      Social | Divider | Contact | Divider | Website
+    */
+    grid-template-columns:
+        minmax(0, 1fr)
+        1px
+        minmax(0, 1.25fr)
+        1px
+        minmax(0, 1fr);
 
     align-items: center;
+
+    gap: 24px;
 }
 
-/* Divider */
+
+/* =========================================================
+   DIVIDERS
+========================================================= */
 
 .ty-divider {
     width: 1px;
-    height: 75px;
+    height: 78px;
 
-    background: #E3EEEE;
+    background: #e3eeee;
 }
 
-/* Action column */
+
+/* =========================================================
+   ACTION COLUMN
+========================================================= */
 
 .ty-action-column {
     display: flex;
@@ -179,23 +219,30 @@
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
+
+    min-width: 0;
 }
 
-/* Titles */
+
+/* =========================================================
+   ACTION TITLES
+========================================================= */
 
 .ty-action-title {
-    margin-bottom: 18px;
+    margin-bottom: 16px;
 
-    color: #082B3A;
+    color: #082b3a;
 
     font-size: 14px;
 
     font-weight: 700;
 }
 
-/* Social icons */
+
+/* =========================================================
+   SOCIAL ICONS
+========================================================= */
 
 .ty-social-icons {
     display: flex;
@@ -203,12 +250,14 @@
     align-items: center;
     justify-content: center;
 
-    gap: 10px;
+    gap: 9px;
 }
 
 .ty-social-icons a {
     width: 32px;
     height: 32px;
+
+    flex-shrink: 0;
 
     border-radius: 50%;
 
@@ -218,41 +267,144 @@
 
     text-decoration: none;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     font-size: 14px;
 
     transition:
         transform 0.2s ease,
-        opacity 0.2s ease;
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .ty-social-icons a:hover {
     transform: translateY(-3px);
-    opacity: 0.85;
+
+    opacity: 0.9;
+
+    box-shadow:
+        0 5px 12px rgba(8, 43, 58, 0.15);
 }
 
+
+/* Social colors */
+
 .ty-facebook {
-    background: #1877F2;
+    background: #1877f2;
 }
 
 .ty-instagram {
-    background: #00A89A;
+    background: #00a89a;
 }
 
 .ty-youtube {
-    background: #E53935;
+    background: #e53935;
 }
 
 .ty-twitter {
-    background: #082B3A;
+    background: #082b3a;
 }
 
 .ty-linkedin {
-    background: #0A66C2;
+    background: #0a66c2;
 }
 
-/* Website button */
+
+/* =========================================================
+   CONTACT SECTION
+========================================================= */
+
+.ty-contact-column {
+    min-width: 0;
+}
+
+.ty-contact-buttons {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+/* Contact buttons */
+
+.ty-contact-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    min-height: 38px;
+
+    padding: 0 12px;
+
+    border-radius: 6px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.ty-contact-button i {
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   WHATSAPP
+========================================================= */
+
+.ty-whatsapp {
+    background: #25d366;
+}
+
+.ty-whatsapp:hover {
+    background: #20bd5a;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(37, 211, 102, 0.25);
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+.ty-phone {
+    background: #1259de;
+}
+
+.ty-phone:hover {
+    background: #0e4fc7;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(18, 89, 222, 0.25);
+}
+
+
+/* =========================================================
+   WEBSITE BUTTON
+========================================================= */
 
 .ty-website-button {
     display: inline-flex;
@@ -265,13 +417,13 @@
 
     padding: 0 20px;
 
-    background: rgba(18,89,222,.85);
+    background: #1259de;
 
-    color: #FFFFFF;
+    color: #ffffff;
 
     text-decoration: none;
 
-    border-radius: 2px;
+    border-radius: 6px;
 
     font-size: 12px;
 
@@ -279,16 +431,23 @@
 
     transition:
         background 0.2s ease,
-        transform 0.2s ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .ty-website-button:hover {
-    background: rgba(18,89,222,.85);
+    background: #0e4fc7;
 
     transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 18px rgba(18, 89, 222, 0.22);
 }
 
-/* Tablet */
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 900px) {
 
@@ -303,20 +462,55 @@
     }
 
     .ty-content {
-        max-width: 650px;
+        max-width: 720px;
     }
 
     .ty-action-card {
-        max-width: 600px;
+        max-width: 680px;
+
+        padding: 25px 20px;
+
+        gap: 18px;
+    }
+
+    .ty-action-title {
+        font-size: 13px;
+    }
+
+    .ty-contact-buttons {
+        flex-direction: column;
+
+        width: 100%;
+    }
+
+    .ty-contact-button {
+        width: 100%;
+        max-width: 170px;
+    }
+
+    .ty-social-icons {
+        gap: 7px;
+    }
+
+    .ty-social-icons a {
+        width: 30px;
+        height: 30px;
+
+        font-size: 13px;
     }
 }
 
-/* Mobile */
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 600px) {
 
     .ty-page {
         min-height: 100svh;
+
+        align-items: center;
     }
 
     .ty-yellow-shape {
@@ -333,6 +527,9 @@
         padding: 30px 18px;
     }
 
+
+    /* Check */
+
     .ty-check-circle {
         width: 48px;
         height: 48px;
@@ -342,11 +539,17 @@
         margin-bottom: 12px;
     }
 
+
+    /* Heading */
+
     .ty-page h1 {
         font-size: 30px;
 
         margin-bottom: 12px;
     }
+
+
+    /* Description */
 
     .ty-description {
         font-size: 11px;
@@ -358,6 +561,9 @@
         margin-bottom: 28px;
     }
 
+
+    /* Action card */
+
     .ty-action-card {
         width: 100%;
 
@@ -367,8 +573,11 @@
 
         grid-template-columns: 1fr;
 
-        gap: 25px;
+        gap: 23px;
     }
+
+
+    /* Dividers */
 
     .ty-divider {
         width: 80%;
@@ -377,11 +586,17 @@
         margin: 0 auto;
     }
 
+
+    /* Titles */
+
     .ty-action-title {
         font-size: 13px;
 
         margin-bottom: 14px;
     }
+
+
+    /* Social */
 
     .ty-social-icons {
         gap: 9px;
@@ -394,6 +609,34 @@
         font-size: 13px;
     }
 
+
+    /* Contact */
+
+    .ty-contact-buttons {
+        width: 100%;
+
+        flex-direction: column;
+
+        gap: 9px;
+    }
+
+    .ty-contact-button {
+        width: 100%;
+
+        max-width: 240px;
+
+        min-height: 42px;
+
+        font-size: 12px;
+    }
+
+    .ty-contact-button i {
+        font-size: 16px;
+    }
+
+
+    /* Website */
+
     .ty-website-button {
         min-width: 125px;
         height: 40px;
@@ -402,7 +645,10 @@
     }
 }
 
-/* Very small phones */
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
 
 @media (max-width: 380px) {
 
@@ -421,5 +667,29 @@
 
     .ty-action-card {
         padding: 22px 12px;
+
+        gap: 20px;
+    }
+
+    .ty-contact-button {
+        max-width: 220px;
+
+        min-height: 40px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ty-social-icons a,
+    .ty-contact-button,
+    .ty-website-button {
+        transition: none;
     }
 }

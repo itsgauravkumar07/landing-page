@@ -11,7 +11,7 @@ export default function Hero() {
         <img src={hero.bgImage} alt="Maldives resort at dusk" />
       </div>
       <div className="wrap hero__inner">
-        <h1>
+        <h1 className="hero_h1">
           {hero.heading[0]}
           <br />
           {hero.heading[1]}
