@@ -1,0 +1,425 @@
+/* =========================
+   Thank You page
+   Ported 1:1 from the provided thankyou.html design
+   (Paradise Yatra brand: navy #0A3342 / teal #00A89A, Montserrat).
+   Classes are namespaced with "ty-" so nothing here can collide
+   with the landing page's own global.css.
+========================= */
+
+.ty-page {
+    position: relative;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7FBFB 100%);
+
+    font-family: "Montserrat", Arial, sans-serif;
+    color: #082B3A;
+}
+
+.ty-page * {
+    box-sizing: border-box;
+}
+
+/* Background shapes */
+
+.ty-yellow-shape {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: min(38vw, 700px);
+    height: min(42vw, 620px);
+
+    background: rgba(0, 40, 113, 0.85);
+
+    clip-path: polygon(
+        0 0,
+        100% 0,
+        0 100%
+    );
+
+    z-index: 0;
+}
+
+.ty-green-shape {
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+
+    width: min(38vw, 700px);
+    height: min(42vw, 620px);
+
+    background: rgba(18,89,222,.85);
+
+    clip-path: polygon(
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index: 0;
+}
+
+/* Main content */
+
+.ty-content {
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    max-width: 760px;
+
+    padding: 40px 25px;
+
+    text-align: center;
+}
+
+/* Check icon */
+
+.ty-check-circle {
+    width: 54px;
+    height: 54px;
+
+    margin: 0 auto 14px;
+
+    border-radius: 50%;
+
+    background: rgba(18,89,222,.85);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+
+    font-size: 25px;
+
+    box-shadow: 0 4px 12px rgba(0, 168, 154, 0.18);
+}
+
+/* Heading */
+
+.ty-page h1 {
+    margin: 0 0 14px;
+
+    font-size: clamp(32px, 3vw, 46px);
+    line-height: 1.15;
+
+    font-weight: 700;
+
+    color: #082B3A;
+}
+
+/* Description */
+
+.ty-description {
+    width: 100%;
+    max-width: 620px;
+
+    margin: 0 auto 38px;
+
+    color: #647B83;
+
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.7;
+
+    font-weight: 400;
+}
+
+/* Action card */
+
+.ty-action-card {
+    width: 100%;
+    max-width: 650px;
+
+    min-height: 155px;
+
+    margin: 0 auto;
+
+    padding: 30px 45px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDE9EA;
+
+    box-shadow:
+        0 14px 45px rgba(8, 43, 58, 0.10);
+
+    display: grid;
+
+    grid-template-columns: 1fr 1px 1fr;
+
+    align-items: center;
+}
+
+/* Divider */
+
+.ty-divider {
+    width: 1px;
+    height: 75px;
+
+    background: #E3EEEE;
+}
+
+/* Action column */
+
+.ty-action-column {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+/* Titles */
+
+.ty-action-title {
+    margin-bottom: 18px;
+
+    color: #082B3A;
+
+    font-size: 14px;
+
+    font-weight: 700;
+}
+
+/* Social icons */
+
+.ty-social-icons {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+}
+
+.ty-social-icons a {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+}
+
+.ty-social-icons a:hover {
+    transform: translateY(-3px);
+    opacity: 0.85;
+}
+
+.ty-facebook {
+    background: #1877F2;
+}
+
+.ty-instagram {
+    background: #00A89A;
+}
+
+.ty-youtube {
+    background: #E53935;
+}
+
+.ty-twitter {
+    background: #082B3A;
+}
+
+.ty-linkedin {
+    background: #0A66C2;
+}
+
+/* Website button */
+
+.ty-website-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-width: 130px;
+    height: 42px;
+
+    padding: 0 20px;
+
+    background: rgba(18,89,222,.85);
+
+    color: #FFFFFF;
+
+    text-decoration: none;
+
+    border-radius: 2px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ty-website-button:hover {
+    background: rgba(18,89,222,.85);
+
+    transform: translateY(-2px);
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+
+    .ty-yellow-shape {
+        width: 40vw;
+        height: 35vw;
+    }
+
+    .ty-green-shape {
+        width: 40vw;
+        height: 35vw;
+    }
+
+    .ty-content {
+        max-width: 650px;
+    }
+
+    .ty-action-card {
+        max-width: 600px;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .ty-page {
+        min-height: 100svh;
+    }
+
+    .ty-yellow-shape {
+        width: 55vw;
+        height: 42vw;
+    }
+
+    .ty-green-shape {
+        width: 55vw;
+        height: 42vw;
+    }
+
+    .ty-content {
+        padding: 30px 18px;
+    }
+
+    .ty-check-circle {
+        width: 48px;
+        height: 48px;
+
+        font-size: 21px;
+
+        margin-bottom: 12px;
+    }
+
+    .ty-page h1 {
+        font-size: 30px;
+
+        margin-bottom: 12px;
+    }
+
+    .ty-description {
+        font-size: 11px;
+
+        line-height: 1.7;
+
+        max-width: 340px;
+
+        margin-bottom: 28px;
+    }
+
+    .ty-action-card {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 25px 15px;
+
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .ty-divider {
+        width: 80%;
+        height: 1px;
+
+        margin: 0 auto;
+    }
+
+    .ty-action-title {
+        font-size: 13px;
+
+        margin-bottom: 14px;
+    }
+
+    .ty-social-icons {
+        gap: 9px;
+    }
+
+    .ty-social-icons a {
+        width: 31px;
+        height: 31px;
+
+        font-size: 13px;
+    }
+
+    .ty-website-button {
+        min-width: 125px;
+        height: 40px;
+
+        font-size: 11px;
+    }
+}
+
+/* Very small phones */
+
+@media (max-width: 380px) {
+
+    .ty-content {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .ty-page h1 {
+        font-size: 27px;
+    }
+
+    .ty-description {
+        font-size: 10px;
+    }
+
+    .ty-action-card {
+        padding: 22px 12px;
+    }
+}
