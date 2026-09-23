@@ -9,7 +9,7 @@ export default function Header() {
   return (
     <div className="site-header">
       <div className="wrap site-header__inner">
-        <a href="#top" className="site-header__logo" aria-label={company.name}>
+        <a href="https://paradiseyatra.com/" className="site-header__logo" aria-label={company.name}>
           {!iconFailed && (
             <img
               src={company.icon}
