@@ -314,13 +314,34 @@ footer.site{background:var(--blue-900);color:#8FAAD8;padding:26px 0;font-size:13
 }
 
 /* ---------- site header / logo ---------- */
-.site-header{
+/* .site-header{
   position:absolute;top:0;left:0;right:0;z-index:10;
   padding-top:22px;
 }
 .site-header__inner{display:flex;align-items:center}
 .site-header__logo{
   display:inline-flex;align-items:center;text-decoration:none;
+  color:#fff;font-family:'Libre Franklin',sans-serif;font-weight:800;
+  font-size:20px;letter-spacing:-.01em;
+  text-shadow:0 2px 14px rgba(4,18,46,.75);
+}
+.site-header__logo img{height:40px;width:auto;display:block}
+.site-header__icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+} */
+
+/* ---------- site header / logo ---------- */
+.site-header{
+  position:absolute;top:0;left:0;right:0;z-index:10;
+  padding-top:22px;
+}
+.site-header__inner{display:flex;align-items:center}
+.site-header__logo{
+  display:inline-flex;align-items:center;gap:10px;text-decoration:none;
   color:#fff;font-family:'Libre Franklin',sans-serif;font-weight:800;
   font-size:20px;letter-spacing:-.01em;
   text-shadow:0 2px 14px rgba(4,18,46,.75);
@@ -332,6 +353,34 @@ footer.site{background:var(--blue-900);color:#8FAAD8;padding:26px 0;font-size:13
   object-fit: contain;
   display: block;
   flex-shrink: 0;
+}
+
+@media (max-width:520px){
+  .site-header{
+    padding-top:14px;
+  }
+  .site-header__logo{
+    gap:8px;
+    font-size:15px;
+  }
+  .site-header__icon{
+    width:32px;
+    height:32px;
+  }
+}
+
+@media (max-width:380px){
+  .site-header{
+    padding-top:12px;
+  }
+  .site-header__logo{
+    gap:6px;
+    font-size:13.5px;
+  }
+  .site-header__icon{
+    width:28px;
+    height:28px;
+  }
 }
 
 /* ---------- floating phone / whatsapp buttons ---------- */
