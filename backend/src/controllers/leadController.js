@@ -12,7 +12,16 @@ export async function createLead(req, res, next) {
       });
     }
 
-       const normalizedKey = phone.trim().replace(/\s+/g, "");
+    const normalizedKey = phone.trim().replace(/\s+/g, "");
+
+    const FAKE_EMAIL_DOMAINS = ["test.com", "example.com", "abc.com", "asdf.com"];
+    const emailDomain = email.trim().toLowerCase().split("@")[1];
+    if (FAKE_EMAIL_DOMAINS.includes(emailDomain)) {
+      return res.status(400).json({
+        success: false,
+        message: "Please enter a real email address.",
+      });
+    }
 
     const existing = await Lead.findOne({ normalizedKey });
     if (existing) {
