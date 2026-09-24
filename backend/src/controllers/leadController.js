@@ -3,12 +3,22 @@ import Lead from "../models/Lead.js";
 // POST /api/leads  — create a new lead from the landing page form
 export async function createLead(req, res, next) {
   try {
-    const { name, phone, email, travelMonth } = req.body;
+        const { name, phone, email, travelMonth } = req.body;
 
     if (!name || !phone || !email || !travelMonth) {
       return res.status(400).json({
         success: false,
         message: "Name, phone, email and travel month are all required.",
+      });
+    }
+
+       const normalizedKey = phone.trim().replace(/\s+/g, "");
+
+    const existing = await Lead.findOne({ normalizedKey });
+    if (existing) {
+      return res.status(409).json({
+        success: false,
+        message: "You've already submitted these details. Our team will be in touch shortly.",
       });
     }
 
@@ -26,6 +36,14 @@ export async function createLead(req, res, next) {
         .join(" ");
       return res.status(400).json({ success: false, message });
     }
+
+        if (err.code === 11000) {
+      return res.status(409).json({
+        success: false,
+        message: "You've already submitted these details. Our team will be in touch shortly.",
+      });
+    }
+
     next(err);
   }
 }

@@ -38,8 +38,21 @@ const leadSchema = new mongoose.Schema(
       enum: ["new", "contacted", "converted", "closed"],
       default: "new",
     },
+   normalizedKey: {
+      type: String,
+      select: false, // internal only — not returned in API responses
+    },
   },
   { timestamps: true }
 );
+
+leadSchema.pre("validate", function setNormalizedKey(next) {
+  // Uniqueness is on phone number alone now — same number can never be
+  // saved twice, regardless of the name or email that comes with it.
+  this.normalizedKey = this.phone?.trim().replace(/\s+/g, "");
+  next();
+});
+
+leadSchema.index({ normalizedKey: 1 }, { unique: true, sparse: true });
 
 export default mongoose.model("Landing-page-queries", leadSchema);
